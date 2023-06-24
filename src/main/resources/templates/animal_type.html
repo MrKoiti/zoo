@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+    <style>
+  * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+ max-width: 800px;
+ display:inline;
+ float:left;
+}
+
+h1 {
+ margin-bottom: 20px;
+ text-align: center;
+ color: #2c3e50;
+}
+
+.books {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.book {
+ margin: 20px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.3);
+ border-radius: 10px;
+ overflow: hidden;
+}
+
+.book img {
+ width: 100%;
+ height: auto;
+ object-fit: cover;
+}
+
+.book-info {
+ padding: 20px;
+}
+
+.book-info h2 {
+ margin-bottom: 10px;
+ text-align: center;
+ color: #2c3e50;
+ font-size: 20px;
+}
+
+.book-info p {
+ margin-bottom: 10px;
+ color: #2c3e50;
+ font-size: 16px;
+}
+.card-body p strong {
+ font-size: 18px;
+ font-weight: bold;
+}
+.block{
+ max-width: 6000px;
+ margin: 50px auto;
+ padding: 50px;
+ background-color: #74992e;
+ border-radius: 10px;
+}
+block a {
+ display: inline-block;
+ margin-top: 100px;
+ margin: 25px;
+ padding: 15px 15px 15px 20px;
+ width: 350px;
+ background-color: #2c3e50;
+ color: #74992e;
+ text-align: center;
+ text-decoration: none;
+ border-radius: 10px;
+ transition: background-color 0.3s ease-in-out;
+ font-size: 24px;
+}
+
+block a:hover {
+ background-color: #2c3e50;
+}
+</style>
+</head>
+<body>
+<block class="block">
+    <a href="man">Работники</a> <a href="animals">Животные</a> <a href="animal_menu">Меню для животных</a> <a  href="animal_type">Виды животных</a>
+
+    <a href="add_man">Добавить работника</a> <a href="add_animal">Добавить особь</a> <a href="add_animal_menu">Добавить меню</a> <a href="add_animal_type">Добавить вид</a>
+
+    <a href="delete_man">Удалить работника</a> <a href="delete_animal">Удалить особь</a> <a href="delete_animal_menu">Удалить меню</a> <a href="delete_animal_type">Удалить вид</a>
+</block>
+
+<h1>Виды животных</h1>
+
+<div class="container" th:each = "animal_type : ${animal_types}">
+    <div class="books">
+        <div class="book">
+            <div class="book-info">
+                <h2 th:text = ${animal_type.animal_type_name}>Наименование вида:</h2>
+                <p><strong>ID вида:</strong><p th:text = "${animal_type.id_animal_type}"></p></p>
+                <p><strong>ID клетки: </strong><p th:text = "${animal_type.id_cage}"></p></p>
+                <p><strong>ID меню для вида:</strong><p th:text = "${animal_type.id_animal_menu}"></p></p>
+                <p><strong>Нужно отопляемое помещение:</strong><p th:text = "${animal_type.warm_place}"></p></p>
+                <p><strong>Совместимость видов:</strong><p th:text = "${animal_type.compatibility}"></p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

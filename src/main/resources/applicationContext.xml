@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.example.zoo" />
+    <bean id = "id_admin" class = "com.example.zoo.models.admin"/>
+    <bean id = "id_animal" class = "com.example.zoo.models.animal"/>
+    <bean id = "id_animal_type" class = "com.example.zoo.models.animal_type"/>
+    <bean id = "id_builder" class = "com.example.zoo.models.builder"/>
+    <bean id = "id_cage" class = "com.example.zoo.models.cage"/>
+    <bean id = "id_cage_animal" class = "com.example.zoo.models.cage_animal"/>
+    <bean id = "id_feed_norm" class = "com.example.zoo.models.feed_norm"/>
+    <bean id = "id_man" class = "com.example.zoo.models.man"/>
+    <bean id = "id_trainer" class = "com.example.zoo.models.trainer"/>
+    <bean id = "id_vaccination" class = "com.example.zoo.models.vaccination"/>
+    <bean id = "id_vet" class = "com.example.zoo.models.vet"/>
+
+</beans>

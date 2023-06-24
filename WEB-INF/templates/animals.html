@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+    #formOne{
+        display: none;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-name: open;
+    }
+    #formOne.open{
+        display: block;
+    }
+    #formTwo{
+        display: none;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-name: open;
+    }
+    #formTwo.open{
+        display: block;
+    }
+    #formThree{
+        display: none;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-name: open;
+    }
+    #formThree.open{
+        display: block;
+    }
+    #formFour{
+        display: none;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-name: open;
+    }
+    #formFour.open{
+        display: block;
+    }
+    @keyframes open {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+<body>
+<nav th:replace="/fragments/nav::navigationbar"></nav>
+<div>
+
+  <form method="GET" th:action="@{/animal/show}">
+    <button type="submit">Вывод списка всех животных</button>
+  </form>
+
+</div>
+<div class="container">
+  <div th:if="${not #lists.isEmpty(animals)}">
+    <h2>Animal List</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>ID Animal</th>
+        <th>ID Type</th>
+        <th>Health State</th>
+        <th>weight</th>
+        <th>height</th>
+        <th>Animal Name</th>
+      </tr>
+      <tr th:each="animal : ${animals}">
+        <td th:text="${animal.id_animal}"></td>
+        <td th:text="${animal.id_animal_type}"></td>
+        <td th:text="${animal.health_state}"></td>
+        <td th:text="${animal.weight}"></td>
+        <td th:text="${animal.height}"></td>
+        <td th:text="${animal.animal_name}"></td>
+      </tr>
+  </table>
+  </div>
+</div>
+</body>
+
+</html>
